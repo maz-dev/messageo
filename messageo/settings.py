@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
@@ -36,6 +35,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'chat',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -58,12 +58,6 @@ WSGI_APPLICATION = 'messageo.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'messageo',
-        'USER': 'maz-dev',
-        'PASSWORD': '',
-        'HOST': 'localhost',
-        'PORT': '5432',
     }
 }
 

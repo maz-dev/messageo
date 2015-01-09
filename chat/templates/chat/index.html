@@ -1,0 +1,9 @@
+{% if latest_messages %}
+    <ul>
+    {% for message in latest_messages %}
+        <li>{{ messages.body }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Pas de messages.</p>
+{% endif %}
