@@ -4,13 +4,11 @@ $(function() {
     // Submit post on submit
     $('#submit-message').on('submit', function(e){
         e.preventDefault();
-        console.log("Message envoyé")
         submit_message();
         return false;
     });
 
     function submit_message() {
-        console.log("submit_message working")
         $.ajax({
             url : "submit/",
             type : "POST",
