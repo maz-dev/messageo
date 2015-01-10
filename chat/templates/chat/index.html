@@ -1,9 +1,18 @@
-{% if latest_messages %}
-    <ul>
-    {% for message in latest_messages %}
-        <li>{{ messages.body }}</li>
-    {% endfor %}
+{% extends 'messageo/base.html' %}
+{% block content %}
+    <form method="POST" id="submit-message">
+        {% csrf_token %}
+        <div id="message">
+            {{ form.body }}
+        </div>
+        <div id="results"></div>
+        <input type="submit" value="Envoyer" >
+    </form>
+    <ul id="main">
+        {% for message in message_list %}
+            <li>{{ message.body }} <i>le {{ message.posted }}</i></li>
+        {% empty %}
+            <p>Pas de messages.</p>
+        {% endfor %}
     </ul>
-{% else %}
-    <p>Pas de messages.</p>
-{% endif %}
+{% endblock %}

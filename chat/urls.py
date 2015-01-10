@@ -1,7 +1,7 @@
 from django.conf.urls import patterns, url
 
-from chat import views
 
-urlpatterns = patterns('',
-    url(r'^$', views.index, name='index'),
+urlpatterns = patterns('chat.views',
+    url(r'^$', 'index'),
+    url(r'^submit/', 'submit_message'),
 )
