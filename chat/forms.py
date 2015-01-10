@@ -3,11 +3,9 @@ from chat.models import Message
 
 
 class SubmitForm(forms.ModelForm):
+    body = forms.CharField(max_length=1024, label="Tapez votre message: ", required=True,
+        widget=forms.TextInput(attrs={'placeholder': 'Votre message'}))
     class Meta:
         model = Message
         fields = ['body']
-        widgets = {
-            'body': forms.TextInput(
-                attrs={'id': 'message-body', 'required': True, 'placeholder': 'Votre message'}
-            ),
-        }
+
