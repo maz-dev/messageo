@@ -7,4 +7,5 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
     url(r'^', include('chat.urls')),
     url(r'^admin/', include(admin.site.urls)),
+    (r'^accounts/', include('registration.backends.default.urls')),
 )
