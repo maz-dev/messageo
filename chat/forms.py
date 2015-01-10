@@ -3,7 +3,6 @@ from chat.models import Message
 
 
 class SubmitForm(forms.ModelForm):
-    body = forms.CharField(max_length=1024, label="Tapez votre message: ", required=True)
     class Meta:
         model = Message
         fields = ['body']

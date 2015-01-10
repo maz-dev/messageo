@@ -7,5 +7,6 @@ class Message(models.Model):
     def __unicode__(self):
         return '%s' % self.body
 
+    # Renvoi ordonné, à gérer dans la vue si besoin de plus de paramètres.
     class Meta:
         ordering = ['-posted']

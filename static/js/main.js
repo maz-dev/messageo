@@ -1,7 +1,5 @@
 $(function() {
 
-
-    // Submit post on submit
     $('#submit-message').on('submit', function(e){
         e.preventDefault();
         submit_message();

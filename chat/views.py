@@ -5,7 +5,7 @@ from chat.forms import SubmitForm
 from datetime import datetime
 import json
 
-
+#Simple vue affichant la liste des messages
 def index(req):
 
     context = {
@@ -14,6 +14,7 @@ def index(req):
     }
     return render(req, 'chat/index.html', context)
 
+#Vue de réception de la requête ajax
 def submit_message(request):
     if request.method == 'POST':
         message_body = request.POST.get('message')
@@ -22,7 +23,7 @@ def submit_message(request):
         message = Message(body=message_body)
         message.save()
 
-        response_data['result'] = 'Create message successful!'
+        # Réponses envoyées pour mettre à jour la vue.
         response_data['text'] = message.body
         response_data['posted'] = message.posted.strftime('%B %d, %Y %I:%M %p')
 
@@ -32,7 +33,7 @@ def submit_message(request):
         )
     else:
         return HttpResponse(
-            json.dumps({"nothing to see": "this isn't happening"}),
+            json.dumps({"woops": "nope"}),
             content_type="application/json"
         )
 
@@ -42,6 +43,7 @@ def submit_message(request):
 #     template_name = 'chat/index.html'
 #     model = Message
 
+# Essai en ajoutant un contexte à une formview. Nul pour de l'ajax.
 
 # class MessageCreate(CreateView):
 #     model = Message
@@ -52,6 +54,11 @@ def submit_message(request):
 #     def get_context_data(self, **kwargs):
 #         kwargs['object_list'] = Message.objects.all()
 #         return super(MessageCreate, self).get_context_data(**kwargs)
+
+
+
+# Essai de mixin ajax, à approfondir, mais peu utile sur un mini projet.
+# Difficile à éxécuter proprement, risque de coupling et difficile à maintenir
 
 
 
