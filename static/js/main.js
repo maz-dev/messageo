@@ -23,7 +23,7 @@ $(function() {
 
             error : function(xhr,errmsg,err) {
                 $('#results').html("<div class='alert-box alert radius' data-alert>Erreur lors de l'envoi du message: "+errmsg+
-                    "</div>"); /
+                    "</div>");
                 console.log(xhr.status + ": " + xhr.responseText);
             }
         });
