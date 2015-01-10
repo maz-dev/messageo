@@ -15,6 +15,10 @@ $(function() {
                 $('#message-body').val('');
                 $("#main").prepend("<li>"+json.text+"- <em> "+json.posted+"</em> - <span> </li>");
                 console.log("success");
+                $( '#submit-message' ).each(function(){
+                    this.reset();
+                });
+
             },
 
             error : function(xhr,errmsg,err) {
